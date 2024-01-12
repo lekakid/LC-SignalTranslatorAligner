@@ -1,0 +1,9 @@
+{
+    "name": "SignalTranslatorAligner",
+    "version_number": "1.0.0",
+    "website_url": "https://github.com/lekakid/LC-SignalTranslatorAligner",
+    "description": "Signal Translator always display centered text",
+    "dependencies": [
+        "BepInEx-BepInExPack-5.4.2100"
+    ]
+}
