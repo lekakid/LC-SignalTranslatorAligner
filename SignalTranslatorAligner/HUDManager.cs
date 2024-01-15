@@ -64,8 +64,30 @@ class DisplaySignalTranslatorMessage
 [HarmonyPatch(typeof(HUDManager), "Awake")]
 class AwakePatch
 {
-    static void Postfix(TextMeshProUGUI ___signalTranslatorText)
+    static void Postfix(
+        TextMeshProUGUI ___signalTranslatorText
+    )
     {
+        // Align "RECEIVING SIGNAL"
+        Transform container = ___signalTranslatorText.transform.GetParent();
+        RectTransform text1rt = (RectTransform)container.GetChild(1);
+        RectTransform text2rt = (RectTransform)container.GetChild(2);
+
+        text1rt.anchorMin = new Vector2(0f, 0.5f);
+        text1rt.anchorMax = new Vector2(1f, 0.5f);
+        text1rt.sizeDelta = new Vector2(0f, text1rt.sizeDelta.y);
+        var tmpu1 = text1rt.GetComponent<TextMeshProUGUI>();
+        tmpu1.margin = new Vector4(0, 0, text1rt.anchoredPosition.x * 2, 0);
+        tmpu1.alignment = TextAlignmentOptions.Center;
+
+        text2rt.anchorMin = new Vector2(0f, 0.5f);
+        text2rt.anchorMax = new Vector2(1f, 0.5f);
+        text2rt.sizeDelta = new Vector2(0f, text2rt.sizeDelta.y);
+        var tmpu2 = text2rt.GetComponent<TextMeshProUGUI>();
+        tmpu2.margin = new Vector4(0, 0, text2rt.anchoredPosition.x * 2, 0);
+        tmpu2.alignment = TextAlignmentOptions.Center;
+
+        // Align signal message
         ___signalTranslatorText.alignment = TextAlignmentOptions.Center;
         ___signalTranslatorText.rectTransform.anchorMin = new Vector2(0, 0.5f);
         ___signalTranslatorText.rectTransform.anchorMax = new Vector2(1f, 0.5f);
