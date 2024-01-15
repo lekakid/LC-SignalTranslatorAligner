@@ -1,6 +1,6 @@
 {
     "name": "SignalTranslatorAligner",
-    "version_number": "1.0.0",
+    "version_number": "1.1.0",
     "website_url": "https://github.com/lekakid/LC-SignalTranslatorAligner",
     "description": "Signal Translator always display centered text",
     "dependencies": [
